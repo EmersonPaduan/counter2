@@ -11,7 +11,7 @@ services:
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes:
-      - mysqldb:/var/lib/mysql
+      - mysql_db:/var/lib/mysql
   app:
     depends_on:
       - mysqldb
@@ -28,5 +28,5 @@ services:
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQLDialect",
         "spring.jpa.hibernate.ddl-auto" : "update" }'
 volumes:
-  mysqldb:
+  mysql_db:
     driver: local
